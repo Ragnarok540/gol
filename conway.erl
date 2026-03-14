@@ -1,3 +1,5 @@
+% https://www.youtube.com/watch?v=sajKj2iwtRo
+
 -module(conway).
 -export([demo_grid/0, run_simulation/2]).
 
@@ -25,8 +27,8 @@ assign(Grid, Y, X, State) ->
 
 draw(Value) ->
     case Value of
-        empty -> "-";
-        alive -> "*"
+        empty -> ".";
+        alive -> "#"
     end.
 
 count_neighbors(Grid, Y, X) ->
@@ -69,9 +71,8 @@ print(Grid) ->
     ColumnIndex = lists:seq(0, Grid#grid.width - 1),
     RowIndex = lists:seq(0, Grid#grid.height - 1),
     lists:foreach(fun(Y) ->
-        io:format("|"),
         lists:foreach(fun(X) ->
-            io:format(" ~s |", [draw(query(Grid, Y, X))]) end, ColumnIndex),
+            io:format("~s", [draw(query(Grid, Y, X))]) end, ColumnIndex),
             io:format("~n") end, RowIndex).
 
 demo_grid() ->
@@ -92,8 +93,13 @@ run_simulation(Grid, N) ->
     clear_screen(),
     UpdatedGrid = simulate(Grid),
     print(UpdatedGrid),
-    timer:sleep(500),
+    timer:sleep(250),
     case N > 0 of
         true -> run_simulation(UpdatedGrid, N - 1);
         false -> end_simulation()
     end.
+
+% erl
+% c(conway).
+% Grid = conway:demo_grid().
+% conway:run_simulation(Grid, 100).
