@@ -15,15 +15,15 @@ class Grid:
         self.rows[x % self.height][y % self.width] = state
 
     def count_neighbors(self, x, y):
-        ne = self.query(x + 1, y + 1)
         n = self.query(x + 1, y)
+        ne = self.query(x + 1, y + 1)
         e = self.query(x, y + 1)
         se = self.query(x - 1, y + 1)
         s = self.query(x - 1, y)
         sw = self.query(x - 1, y - 1)
         w = self.query(x, y - 1)
         nw = self.query(x + 1, y - 1)
-        neighbor_states = [ne, n, e, se, s, sw, w, nw]
+        neighbor_states = [n, ne, e, se, s, sw, w, nw]
         return len(list(filter(lambda state: state, neighbor_states)))
 
     def draw(self, value):
