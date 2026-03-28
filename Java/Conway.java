@@ -104,7 +104,6 @@ public class Conway {
         con.assign(2, 3, true);
         con.assign(2, 4, true);
 
-        con.assign(7, 7, true);
         con.print();
         
         while (true) {
