@@ -97,7 +97,7 @@ fn main() {
 
     conway.print();
 
-    while true {
+    loop {
         Conway::<HEIGHT, WIDTH>::clear_screen();
         conway.simulate();
         conway.print();
