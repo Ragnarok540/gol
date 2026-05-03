@@ -21,6 +21,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |C|C23|[Site](https://www.c-language.org/)|
 |Erlang|28|[Site](https://www.erlang.org/)|
 |Go|1.26.2|[Site](https://go.dev/)|
+|Io|20151111|[Site](https://iolanguage.org/)|
 |Java|25.0.1|[Site](https://openjdk.org/)|
 |Python|3.14.0|[Site](https://www.python.org/)|
 |R|4.5.2|[Site](https://www.r-project.org/)|
