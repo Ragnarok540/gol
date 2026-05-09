@@ -16,14 +16,15 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 
 ## Implementation Languages
 
-|Language|Version|Site|
-|--------|-------|----|
-|C|C23|[Site](https://www.c-language.org/)|
-|Erlang|28|[Site](https://www.erlang.org/)|
-|Go|1.26.2|[Site](https://go.dev/)|
-|Io|20151111|[Site](https://iolanguage.org/)|
-|Java|25.0.1|[Site](https://openjdk.org/)|
-|Python|3.14.0|[Site](https://www.python.org/)|
-|R|4.5.2|[Site](https://www.r-project.org/)|
-|Ruby|2.6.10|[Site](https://www.ruby-lang.org/)|
-|Rust|1.94.1|[Site](https://rust-lang.org/)|
+|Language|Version|Site|Note|
+|--------|-------|----|----|
+|C|C23|[Site](https://www.c-language.org/)||
+|Erlang|28|[Site](https://www.erlang.org/)||
+|Go|1.26.2|[Site](https://go.dev/)||
+|Io|20151111|[Site](https://iolanguage.org/)|can't clear screen?|
+|Java|25.0.1|[Site](https://openjdk.org/)||
+|JavaScript|20.19.5|[Site](https://nodejs.org/en)||
+|Python|3.14.0|[Site](https://www.python.org/)||
+|R|4.5.2|[Site](https://www.r-project.org/)||
+|Ruby|2.6.10|[Site](https://www.ruby-lang.org/)||
+|Rust|1.94.1|[Site](https://rust-lang.org/)||
