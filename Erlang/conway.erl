@@ -1,7 +1,7 @@
 % https://www.youtube.com/watch?v=sajKj2iwtRo
 
 -module(conway).
--export([demo_grid/0, run_simulation/2]).
+-export([start/0]).
 
 -record(grid, {height=10, width=10, rows}).
 -record(transition, {y, x, state}).
@@ -86,20 +86,17 @@ demo_grid() ->
 clear_screen() ->
     io:format("\ec").
 
-end_simulation() ->
-    io:format("~nEnd of simulation~n").
-
-run_simulation(Grid, N) ->
+run_simulation(Grid) ->
     clear_screen(),
     UpdatedGrid = simulate(Grid),
     print(UpdatedGrid),
-    timer:sleep(250),
-    case N > 0 of
-        true -> run_simulation(UpdatedGrid, N - 1);
-        false -> end_simulation()
-    end.
+    timer:sleep(100),
+    run_simulation(UpdatedGrid).
+
+start() ->
+    Grid = demo_grid(),
+    run_simulation(Grid).
 
 % erl
 % c(conway).
-% Grid = conway:demo_grid().
-% conway:run_simulation(Grid, 100).
+% conway:start().

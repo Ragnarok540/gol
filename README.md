@@ -24,6 +24,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Io|20151111|[Site](https://iolanguage.org/)|can't clear screen?|
 |Java|25.0.1|[Site](https://openjdk.org/)||
 |JavaScript|20.19.5|[Site](https://nodejs.org/en)||
+|Lua|5.5.0|[Site](https://www.lua.org/)||
 |Python|3.14.0|[Site](https://www.python.org/)||
 |R|4.5.2|[Site](https://www.r-project.org/)||
 |Ruby|2.6.10|[Site](https://www.ruby-lang.org/)||
