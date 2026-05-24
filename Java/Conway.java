@@ -1,31 +1,30 @@
 public class Conway {
-
     private int height;
     private int width;
-    private boolean[][] rows;
+    private boolean[][] grid;
 
     public Conway(int height, int width) {
         this.height = height;
         this.width = width;
-        this.rows = new boolean[this.height][this.width];
+        this.grid = new boolean[this.height][this.width];
     }
 
     private boolean query(int x, int y) {
-        return this.rows[Math.floorMod(x, this.height)][Math.floorMod(y, this.width)];
+        return this.grid[Math.floorMod(x, this.height)][Math.floorMod(y, this.width)];
     }
 
     private void assign(int x, int y, boolean state) {
-        this.rows[Math.floorMod(x, this.height)][Math.floorMod(y, this.width)] = state;
+        this.grid[Math.floorMod(x, this.height)][Math.floorMod(y, this.width)] = state;
     }
 
     private int countNeighbors(int x, int y) {
-        boolean n = query(x + 1, y);
+        boolean n  = query(x + 1, y    );
         boolean ne = query(x + 1, y + 1);
-        boolean e = query(x, y + 1);
+        boolean e  = query(x,     y + 1);
         boolean se = query(x - 1, y + 1);
-        boolean s = query(x - 1, y);
+        boolean s  = query(x - 1, y    );
         boolean sw = query(x - 1, y - 1);
-        boolean w = query(x, y - 1);
+        boolean w  = query(x,     y - 1);
         boolean nw = query(x + 1, y - 1);
         boolean[] neighborStates = new boolean[] {n, ne, e, se, s, sw, w, nw};
         int counter = 0;
@@ -47,7 +46,7 @@ public class Conway {
     } 
 
     private void print() {
-        for (boolean[] row: this.rows) {
+        for (boolean[] row: this.grid) {
             for (boolean value: row) {
                 System.out.print(draw(value));
             }
@@ -80,15 +79,15 @@ public class Conway {
     }
 
     private void simulate() {
-        boolean[][] newRows = new boolean[this.height][this.width];
+        boolean[][] newGrid = new boolean[this.height][this.width];
 
         for (int x = 0; x < this.height; x++) {
             for (int y = 0; y < this.width; y++) {
-                newRows[x][y] = this.stepCell(x, y);
+                newGrid[x][y] = this.stepCell(x, y);
             }
         }
 
-        this.rows = newRows;
+        this.grid = newGrid;
     }
 
     private void clearScreen() {
@@ -113,7 +112,6 @@ public class Conway {
             Thread.sleep(100);
         }
     }
-
 }
 
 // javac Conway.java

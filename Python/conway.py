@@ -1,27 +1,30 @@
 from time import sleep
 
 
-class Grid:
+class Conway:
     def __init__(self, height, width):
         self.height = height
         self.width = width
-        self.rows = [[False for _ in range(0, self.width)]
-                     for _ in range(0, self.height)]
+        self.grid = self.new_grid()
+
+    def new_grid(self):
+        return [[False for _ in range(0, self.width)]
+                for _ in range(0, self.height)]
 
     def query(self, x, y):
-        return self.rows[x % self.height][y % self.width]
+        return self.grid[x % self.height][y % self.width]
 
     def assign(self, x, y, state):
-        self.rows[x % self.height][y % self.width] = state
+        self.grid[x % self.height][y % self.width] = state
 
     def count_neighbors(self, x, y):
-        n = self.query(x + 1, y)
+        n  = self.query(x + 1, y    )
         ne = self.query(x + 1, y + 1)
-        e = self.query(x, y + 1)
+        e  = self.query(x,     y + 1)
         se = self.query(x - 1, y + 1)
-        s = self.query(x - 1, y)
+        s  = self.query(x - 1, y    )
         sw = self.query(x - 1, y - 1)
-        w = self.query(x, y - 1)
+        w  = self.query(x,     y - 1)
         nw = self.query(x + 1, y - 1)
         neighbor_states = [n, ne, e, se, s, sw, w, nw]
         return len(list(filter(lambda state: state, neighbor_states)))
@@ -29,8 +32,8 @@ class Grid:
     def draw(self, value):
         return '#' if value else '.'
 
-    def print(self):
-        for row in self.rows:
+    def print_grid(self):
+        for row in self.grid:
             for c in row:
                 print(self.draw(c), end='')
             print()
@@ -55,32 +58,33 @@ class Grid:
         return next_state
 
     def simulate(self):
-        new_rows = [[False for _ in range(0, self.width)]
-                    for _ in range(0, self.height)]
+        new_g = self.new_grid()
 
         for x in range(0, self.height):
             for y in range(0, self.width):
-                new_rows[x][y] = self.step_cell(x, y)
+                new_g[x][y] = self.step_cell(x, y)
 
-        self.rows = new_rows
+        self.grid = new_g
 
     def clear_screen(self):
         print('\x1b[2J')
 
 
 if __name__ == '__main__':
-    g = Grid(10, 20)
+    con = Conway(10, 20)
 
-    g.assign(0, 3, True)
-    g.assign(1, 4, True)
-    g.assign(2, 2, True)
-    g.assign(2, 3, True)
-    g.assign(2, 4, True)
+    con.assign(0, 3, True)
+    con.assign(1, 4, True)
+    con.assign(2, 2, True)
+    con.assign(2, 3, True)
+    con.assign(2, 4, True)
 
-    g.print()
+    con.print_grid()
 
     while True:
-        g.clear_screen()
-        g.simulate()
-        g.print()
-        sleep(0.5)
+        con.clear_screen()
+        con.simulate()
+        con.print_grid()
+        sleep(0.1)
+
+# python3 conway.py
