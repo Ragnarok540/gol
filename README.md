@@ -18,6 +18,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 
 |Language|Version|Site|Note|
 |--------|-------|----|----|
+|Ada|GNAT10.5.0|[Site](https://www.adaic.org/)||
 |C|C23|[Site](https://www.c-language.org/)||
 |Erlang|28|[Site](https://www.erlang.org/)||
 |Go|1.26.2|[Site](https://go.dev/)||
