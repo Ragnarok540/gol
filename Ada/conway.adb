@@ -6,26 +6,16 @@ with Ada.Strings.Fixed;
 
 package body Conway is
    use Ada.Text_IO;
-   V : State;
    Matrix : Grid;
 
-   procedure Initialize(M : in out Grid) is
-   begin
-      for I in Height loop
-         for J in Width loop
-            M(I, J) := 0;
-         end loop;
-      end loop;
-   end;
-
-   function Count_Neighbors(M : Grid; X : Height; Y : Width) return Neighbors is
+   function Count_Neighbors(M : Grid; X : Rows; Y : Cols) return Neighbors is
       N, NE, E, SE, S, SW, W, NW : Neighbors;
    begin
-      N  := Neighbors(M(X + 1, Y));
+      N  := Neighbors(M(X + 1, Y    ));
       NE := Neighbors(M(X + 1, Y + 1));
       E  := Neighbors(M(X,     Y + 1));
       SE := Neighbors(M(X - 1, Y + 1));
-      S  := Neighbors(M(X - 1, Y));
+      S  := Neighbors(M(X - 1, Y    ));
       SW := Neighbors(M(X - 1, Y - 1));
       W  := Neighbors(M(X,     Y - 1));
       NW := Neighbors(M(X + 1, Y - 1));
@@ -42,11 +32,12 @@ package body Conway is
    end;
 
    procedure Print(M : Grid) is
+   S : State;
    begin
-      for I in Height loop
-         for J in Width loop
-            V := M(I, J);
-            Put(Draw(V));
+      for Row in Rows loop
+         for Col in Cols loop
+            S := M(Row, Col);
+            Put(Draw(S));
          end loop;
          New_Line;
       end loop;
@@ -70,7 +61,7 @@ package body Conway is
       end if;
    end;
 
-   function Step_Cell(M : Grid; X : Height; Y : Width) return State is
+   function Step_Cell(M : Grid; X : Rows; Y : Cols) return State is
       S : State;
       N : Neighbors;
       Next_S : State;
@@ -84,14 +75,11 @@ package body Conway is
    function Simulate(M : Grid) return Grid is
       New_M : Grid;
    begin
-      Initialize(New_M);
-
-      for I in Height loop
-         for J in Width loop
-            New_M(I, J) := Step_Cell(M, I, J);
+      for Row in Rows loop
+         for Col in Cols loop
+            New_M(Row, Col) := Step_Cell(M, Row, Col);
          end loop;
       end loop;
-
       return New_M;
    end;
 
@@ -102,8 +90,6 @@ package body Conway is
    end;
 
 begin
-   Initialize(Matrix);
-
    Matrix(0, 3) := 1;
    Matrix(1, 4) := 1;
    Matrix(2, 2) := 1;
