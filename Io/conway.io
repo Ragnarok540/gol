@@ -80,7 +80,7 @@ Matrix := Object clone do(
         NewMatrix
     )
     clearScreen := method(
-        write("\x1b[2J")
+        write("\x1B[2J")
     )
 )
 
@@ -99,3 +99,5 @@ for(i, 0, 500,
     Matrix printMatrix
     System sleep(0.1)
 )
+
+# io conway.io

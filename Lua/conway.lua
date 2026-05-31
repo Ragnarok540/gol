@@ -112,3 +112,5 @@ while true do
     print_matrix(matrix)
     sleep(0.1)
 end
+
+-- lua conway.lua
