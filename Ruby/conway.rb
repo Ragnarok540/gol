@@ -1,38 +1,37 @@
-class Grid
-    attr_accessor :height, :width, :rows
+class Conway
+    attr_accessor :height, :width, :grid
 
     def initialize(height, width)
         self.height = height
         self.width = width
-        self.rows = Array.new(height) { Array.new(width, false) }
+        self.grid = Array.new(height) { Array.new(width, 0) }
     end
 
     def query(x, y)
-        return self.rows[x % self.height][y % self.width]
+        return self.grid[x % self.height][y % self.width]
     end
 
     def assign(x, y, state)
-        self.rows[x % self.height][y % self.width] = state
+        self.grid[x % self.height][y % self.width] = state
     end
 
     def count_neighbors(x, y)
-        n = self.query(x + 1, y)
+        n  = self.query(x + 1, y    )
         ne = self.query(x + 1, y + 1)
-        e = self.query(x, y + 1)
+        e  = self.query(x,     y + 1)
         se = self.query(x - 1, y + 1)
-        s = self.query(x - 1, y)
+        s  = self.query(x - 1, y    )
         sw = self.query(x - 1, y - 1)
-        w = self.query(x, y - 1)
+        w  = self.query(x,     y - 1)
         nw = self.query(x + 1, y - 1)
         neighbor_states = [n, ne, e, se, s, sw, w, nw]
-        states = neighbor_states.select {|state| state}
-        return states.length
+        return neighbor_states.sum
     end
 
     def print_grid
         for i in 0..height - 1
             for j in 0..width - 1
-                putc self.rows[i][j] ? "#" : "."
+                putc self.grid[i][j] == 1 ? "#" : "."
             end
             puts
         end
@@ -40,17 +39,17 @@ class Grid
 
     def game_logic(state, neighbors)
         case state
-        when true
+        when 1
             if neighbors < 2
-                return false
+                return 0
             end
             if neighbors > 3
-                return false
+                return 0
             end
             return state
-        when false
+        when 0
             if neighbors == 3
-                return true
+                return 1
             end
             return state
         end
@@ -64,15 +63,15 @@ class Grid
     end
 
     def simulate
-        new_rows = Array.new(height) { Array.new(width, false) }
+        new_grid = Array.new(height) { Array.new(width, 1) }
 
         for i in 0..height - 1
             for j in 0..width - 1
-                new_rows[i][j] = self.step_cell(i, j)
+                new_grid[i][j] = self.step_cell(i, j)
             end
         end
 
-        self.rows = new_rows
+        self.grid = new_grid
     end
 
     def clear_screen
@@ -82,13 +81,13 @@ class Grid
 
 end
 
-g = Grid.new(10, 20)
+g = Conway.new(10, 20)
 
-g.assign(0, 3, true)
-g.assign(1, 4, true)
-g.assign(2, 2, true)
-g.assign(2, 3, true)
-g.assign(2, 4, true)
+g.assign(0, 3, 1)
+g.assign(1, 4, 1)
+g.assign(2, 2, 1)
+g.assign(2, 3, 1)
+g.assign(2, 4, 1)
 
 g.print_grid
 
