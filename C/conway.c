@@ -6,18 +6,18 @@
 typedef struct {
     size_t width;
     size_t height;
-    int *es;
-} Matrix;
+    int *grid;
+} Conway;
 
-#define MAT_AT(m, i, j) (m).es[(i) * (m).width + (j)]
+#define GRID_AT(c, i, j) (c).grid[(i) * (c).width + (j)]
 
-Matrix matrix_alloc(size_t height, size_t width) {
-    Matrix m;
-    m.width = width;
-    m.height = height;
-    m.es = malloc(sizeof(*m.es) * width * height);
-    assert(m.es != NULL);
-    return m;
+Conway conway_alloc(size_t height, size_t width) {
+    Conway c;
+    c.width = width;
+    c.height = height;
+    c.grid = malloc(sizeof(*c.grid) * width * height);
+    assert(c.grid != NULL);
+    return c;
 }
 
 int mod(int x, int y) {
@@ -30,23 +30,23 @@ int mod(int x, int y) {
     return 0;
 }
 
-int query(Matrix m, int i, int j) {
-    return MAT_AT(m, mod(i, m.height), mod(j, m.width));
+int query(Conway c, int i, int j) {
+    return GRID_AT(c, mod(i, c.height), mod(j, c.width));
 }
 
-void assign(Matrix m, int i, int j, int state) {
-    MAT_AT(m, mod(i, m.height), mod(j, m.width)) = state;
+void assign(Conway c, int i, int j, int state) {
+    GRID_AT(c, mod(i, c.height), mod(j, c.width)) = state;
 }
 
-int count_neighbors(Matrix m, int x, int y) {
-    int n = query(m, x+1, y);
-    int ne = query(m, x+1, y+1);
-    int e = query(m, x, y+1);
-    int se = query(m, x-1, y+1);
-    int s = query(m, x-1, y);
-    int sw = query(m, x-1, y-1);
-    int w = query(m, x, y-1);
-    int nw = query(m, x+1, y-1);
+int count_neighbors(Conway c, int x, int y) {
+    int n  = query(c, x + 1, y    );
+    int ne = query(c, x + 1, y + 1);
+    int e  = query(c, x,     y + 1);
+    int se = query(c, x - 1, y + 1);
+    int s  = query(c, x - 1, y    );
+    int sw = query(c, x - 1, y - 1);
+    int w  = query(c, x,     y - 1);
+    int nw = query(c, x + 1, y - 1);
     return n + ne + e + se + s + sw + w + nw;
 }
 
@@ -58,10 +58,10 @@ char draw(int value) {
     }
 }
 
-void print(Matrix m) {
-    for (size_t i = 0; i < m.height; i++) {
-        for (size_t j = 0; j < m.width; j++) {
-            printf("%c", draw(MAT_AT(m, i, j)));
+void print(Conway c) {
+    for (size_t i = 0; i < c.height; i++) {
+        for (size_t j = 0; j < c.width; j++) {
+            printf("%c", draw(GRID_AT(c, i, j)));
         }
         printf("\n");
     }
@@ -84,22 +84,22 @@ int game_logic(int state, int neighbors) {
     }
 }
 
-int step_cell(Matrix m, int x, int y) {
-    int state = query(m, x, y);
-    int neighbors = count_neighbors(m, x, y);
+int step_cell(Conway c, int x, int y) {
+    int state = query(c, x, y);
+    int neighbors = count_neighbors(c, x, y);
     int next_state = game_logic(state, neighbors);
     return next_state;
 }
 
-Matrix simulate(Matrix m) {
-    Matrix new_matrix = matrix_alloc(m.height, m.width);
-    for (size_t i = 0; i < m.height; i++) {
-        for (size_t j = 0; j < m.width; j++) {
-            MAT_AT(new_matrix, i, j) = step_cell(m, i, j);
+Conway simulate(Conway c) {
+    Conway new_conway = conway_alloc(c.height, c.width);
+    for (size_t i = 0; i < c.height; i++) {
+        for (size_t j = 0; j < c.width; j++) {
+            GRID_AT(new_conway, i, j) = step_cell(c, i, j);
         }
     }
-    free(m.es);
-    return new_matrix;
+    free(c.grid);
+    return new_conway;
 }
 
 void clear_screen() {
@@ -109,21 +109,21 @@ void clear_screen() {
 int main() {
     const int HEIGHT = 10;
     const int WIDTH = 20;
-    Matrix matrix = matrix_alloc(HEIGHT, WIDTH);
+    Conway conway = conway_alloc(HEIGHT, WIDTH);
 
-    assign(matrix, 0, 3, 1);
-    assign(matrix, 1, 4, 1);
-    assign(matrix, 2, 2, 1);
-    assign(matrix, 2, 3, 1);
-    assign(matrix, 2, 4, 1);
+    assign(conway, 0, 3, 1);
+    assign(conway, 1, 4, 1);
+    assign(conway, 2, 2, 1);
+    assign(conway, 2, 3, 1);
+    assign(conway, 2, 4, 1);
 
-    matrix = simulate(matrix);
-    print(matrix);
+    conway = simulate(conway);
+    print(conway);
 
     for (;;) {
         clear_screen();
-        matrix = simulate(matrix);
-        print(matrix);
+        conway = simulate(conway);
+        print(conway);
         usleep(100 * 1000);
     }
 

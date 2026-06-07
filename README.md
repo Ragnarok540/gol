@@ -20,6 +20,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |--------|-------|----|----|
 |Ada|10.5.0|[Site](https://www.adaic.org/)|GNAT Compiler|
 |C|C23|[Site](https://www.c-language.org/)||
+|C++|C++23|[Site](https://isocpp.org/)||
 |Erlang|28|[Site](https://www.erlang.org/)||
 |Go|1.26.2|[Site](https://go.dev/)||
 |Io|20151111|[Site](https://iolanguage.org/)|can't clear screen?|
