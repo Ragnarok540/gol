@@ -2,38 +2,40 @@ use std::{thread, time};
 use std::time::{Duration};
 
 struct Conway<const HEIGHT: usize, const WIDTH: usize> {
-    matrix: [[i8; WIDTH]; HEIGHT],
+    grid: [[i8; WIDTH]; HEIGHT],
 }
 
 impl<const HEIGHT: usize, const WIDTH: usize> Conway<HEIGHT, WIDTH> {
+    fn new() -> Self {
+        Self {
+            grid: [[0; WIDTH]; HEIGHT],
+        }
+    }
+
     fn query(&self, x: i8, y: i8) -> i8 {
-        self.matrix[x.rem_euclid(HEIGHT as i8) as usize][y.rem_euclid(WIDTH as i8) as usize]
+        self.grid[x.rem_euclid(HEIGHT as i8) as usize][y.rem_euclid(WIDTH as i8) as usize]
     }
 
     fn assign(&mut self, x: i8, y: i8, state: i8) {
-        self.matrix[x.rem_euclid(HEIGHT as i8) as usize][y.rem_euclid(WIDTH as i8) as usize] = state;
+        self.grid[x.rem_euclid(HEIGHT as i8) as usize][y.rem_euclid(WIDTH as i8) as usize] = state;
     }
 
     fn count_neighbors(&self, x: i8, y: i8) -> i8 {
-        let n = self.query(x + 1, y);
+        let n  = self.query(x + 1, y    );
         let ne = self.query(x + 1, y + 1);
-        let e = self.query(x, y + 1);
+        let e  = self.query(x,     y + 1);
         let se = self.query(x - 1, y + 1);
-        let s = self.query(x - 1, y);
+        let s  = self.query(x - 1, y    );
         let sw = self.query(x - 1, y - 1);
-        let w = self.query(x, y - 1);
+        let w  = self.query(x,     y - 1);
         let nw = self.query(x + 1, y - 1);
         n + ne + e + se + s + sw + w + nw
     }
 
-    fn draw(value: i8) -> char {
-        if value == 1 {'#'} else {'.'}
-    }
-
     fn print(&self) {
-        for row in self.matrix {
+        for row in self.grid {
             for x in row {
-                let c = Self::draw(x);
+                let c = if x == 1 { '#' } else { '.' };
                 print!("{c}");
             }
             print!("\n");
@@ -65,29 +67,25 @@ impl<const HEIGHT: usize, const WIDTH: usize> Conway<HEIGHT, WIDTH> {
     }
 
     fn simulate(&mut self) {
-        let mut new_matrix = [[0; WIDTH]; HEIGHT];
+        let mut new_grid = [[0; WIDTH]; HEIGHT];
         for x in 0..HEIGHT {
             for y in 0..WIDTH {
-                new_matrix[x][y] = self.step_cell(x as i8, y as i8);
+                new_grid[x][y] = self.step_cell(x as i8, y as i8);
             }
         }
-        self.matrix = new_matrix;
+        self.grid = new_grid;
     }
 
     fn clear_screen() {
         print!("\x1B[2J");
     }
-
 }
 
 fn main() {
     const HEIGHT: usize = 10;
     const WIDTH: usize = 20;
     const HUNDRED_MILLIS: Duration = time::Duration::from_millis(100);
-
-    let mut conway = Conway {
-        matrix: [[0; WIDTH]; HEIGHT],
-    };
+    let mut conway: Conway<HEIGHT, WIDTH> = Conway::new();
 
     conway.assign(0, 3, 1);
     conway.assign(1, 4, 1);
