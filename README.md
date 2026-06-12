@@ -16,19 +16,20 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 
 ## Implementation Languages
 
-|Language|Version|Site|Note|
-|--------|-------|----|----|
-|Ada|10.5.0|[Site](https://www.adaic.org/)|GNAT Compiler|
-|C++|C++23|[Site](https://isocpp.org/)||
-|C|C23|[Site](https://www.c-language.org/)||
-|Erlang|28|[Site](https://www.erlang.org/)||
-|Go|1.26.2|[Site](https://go.dev/)||
-|Io|20151111|[Site](https://iolanguage.org/)|can't clear screen?|
-|Java|25.0.1|[Site](https://openjdk.org/)||
-|JavaScript|20.19.5|[Site](https://nodejs.org/en)||
-|Lua|5.5.0|[Site](https://www.lua.org/)||
-|Python|3.14.0|[Site](https://www.python.org/)||
-|R|4.5.2|[Site](https://www.r-project.org/)||
-|Ruby|2.6.10|[Site](https://www.ruby-lang.org/)||
-|Rust|1.94.1|[Site](https://rust-lang.org/)||
-|Tcl|9.0|[Site](https://www.tcl-lang.org/)||
+|Language|Version|Site|
+|--------|-------|----|
+|Ada|10.5.0|[Site](https://www.adaic.org/)|
+|C++|C++23|[Site](https://isocpp.org/)|
+|C|C23|[Site](https://www.c-language.org/)|
+|Erlang|28|[Site](https://www.erlang.org/)|
+|Go|1.26.2|[Site](https://go.dev/)|
+|Io|20151111|[Site](https://iolanguage.org/)|
+|Java|25.0.1|[Site](https://openjdk.org/)|
+|JavaScript|20.19.5|[Site](https://nodejs.org/en)|
+|Kotlin|2.4.0|[Site](https://kotlinlang.org/)|
+|Lua|5.5.0|[Site](https://www.lua.org/)|
+|Python|3.14.0|[Site](https://www.python.org/)|
+|R|4.5.2|[Site](https://www.r-project.org/)|
+|Ruby|2.6.10|[Site](https://www.ruby-lang.org/)|
+|Rust|1.94.1|[Site](https://rust-lang.org/)|
+|Tcl|9.0|[Site](https://www.tcl-lang.org/)|

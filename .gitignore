@@ -7,3 +7,4 @@ bin/
 .vscode
 *.ali
 *.o
+META-INF/
