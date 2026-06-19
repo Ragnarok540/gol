@@ -28,6 +28,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |JavaScript|20.19.5|[Site](https://nodejs.org/en)|
 |Kotlin|2.4.0|[Site](https://kotlinlang.org/)|
 |Lua|5.5.0|[Site](https://www.lua.org/)|
+|Perl|5.34.1|[Site](https://www.perl.org/)|
 |Python|3.14.0|[Site](https://www.python.org/)|
 |R|4.5.2|[Site](https://www.r-project.org/)|
 |Ruby|2.6.10|[Site](https://www.ruby-lang.org/)|
