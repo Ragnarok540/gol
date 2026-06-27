@@ -1,17 +1,14 @@
 defmodule Conway do
-    defstruct [:height, :width, :rows] 
-
-    def grid(h, w) do
-        for _ <- 0..h-1 do
-            for _ <- 0..w-1, do: 0
-        end
-    end
+    defstruct [:height, :width, :grid] 
 
     def new(h, w) do
+        grid = for _ <- 0..h-1 do
+            for _ <- 0..w-1, do: 0
+        end
         %__MODULE__{
             height: h,
             width: w,
-            rows: grid(h, w),
+            grid: grid,
         }
     end
 
@@ -25,16 +22,16 @@ defmodule Conway do
     end
 
     def print(g) do
-        Enum.map(g.rows, fn row ->
+        Enum.map(g.grid, fn row ->
             IO.puts(Enum.join(draw(row), ""))
         end)
     end
 
     def assign(g, y, x, state) do
-        row = Enum.at(g.rows, y)
+        row = Enum.at(g.grid, y)
         updated_row = List.replace_at(row, x, state)
-        rows = List.replace_at(g.rows, y, updated_row)
-        %{g | rows: rows}
+        grid = List.replace_at(g.grid, y, updated_row)
+        %{g | grid: grid}
     end
 
     def mod(x, y) when x > 0, do: rem(x, y)
@@ -42,7 +39,7 @@ defmodule Conway do
     def mod(0, _), do: 0
 
     def query(g, y, x) do
-        row = Enum.at(g.rows, mod(y, g.height))
+        row = Enum.at(g.grid, mod(y, g.height))
         Enum.at(row, mod(x, g.width))
     end
 
@@ -80,10 +77,10 @@ defmodule Conway do
     end
 
     def simulate(g) do
-        res = for y <- 0..g.height-1 do
+        grid = for y <- 0..g.height-1 do
             for x <- 0..g.width-1, do: step_cell(g, y, x)
         end
-        res
+        %{g | grid: grid}
     end
 
     def clear_screen do
@@ -103,8 +100,7 @@ defmodule Conway do
 
     def run_simulation(g) do
         clear_screen()
-        nrows = simulate(g)
-        g = %{g | rows: nrows}
+        g = simulate(g)
         print(g)
         Process.sleep(100)
         run_simulation(g)

@@ -22,7 +22,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |C++|C++23|[Site](https://isocpp.org/)|
 |C|C23|[Site](https://www.c-language.org/)|
 |Elixir|1.20.1|[Site](https://elixir-lang.org/)|
-|Erlang|28|[Site](https://www.erlang.org/)|
+|Erlang|29|[Site](https://www.erlang.org/)|
 |Go|1.26.2|[Site](https://go.dev/)|
 |Io|20151111|[Site](https://iolanguage.org/)|
 |Java|25.0.1|[Site](https://openjdk.org/)|
