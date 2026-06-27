@@ -3,7 +3,7 @@
 -module(conway).
 -export([start/0]).
 
--record(grid, {height=10, width=10, rows}).
+-record(grid, {height=10, width=20, rows}).
 -record(transition, {y, x, state}).
 
 mod(X, Y) when X > 0 -> X rem Y;
@@ -20,7 +20,7 @@ query(Grid, Y, X) ->
     array:get(mod(X, Grid#grid.width), Row).
 
 assign(Grid, Y, X, State) ->
-    Row =  array:get(mod(Y, Grid#grid.height), Grid#grid.rows),
+    Row = array:get(mod(Y, Grid#grid.height), Grid#grid.rows),
     UpdatedRow = array:set(mod(X, Grid#grid.width), State, Row),
     Rows = array:set(mod(Y, Grid#grid.height), UpdatedRow, Grid#grid.rows),
     Grid#grid{rows=Rows}.
