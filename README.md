@@ -3,6 +3,7 @@ Conway's Game of Life in different programming languages.
 While "Hello World" is the most common minimal program
 in any given language, it's not very interesting to just
 print some static text on the terminal. This project, inspired by [Tsoding](https://github.com/tsoding),
+and the [Rosetta Stone](https://en.wikipedia.org/wiki/Rosetta_Stone),
 aims to showcase a few feaures from each language, using the
 cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life), or GOL.
 
