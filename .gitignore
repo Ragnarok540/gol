@@ -8,3 +8,4 @@ bin/
 *.ali
 *.o
 META-INF/
+*.mod
