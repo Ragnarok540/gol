@@ -21,6 +21,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |--------|-------|----|
 |Ada|10.5.0|[Site](https://www.adaic.org/)|
 |C++|C++23|[Site](https://isocpp.org/)|
+|C#|10.0.300|[Site](https://dotnet.microsoft.com/en-us/languages/csharp)|
 |C|C23|[Site](https://www.c-language.org/)|
 |Elixir|1.20.1|[Site](https://elixir-lang.org/)|
 |Erlang|29|[Site](https://www.erlang.org/)|
