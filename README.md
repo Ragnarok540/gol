@@ -20,7 +20,6 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Language|Version|Site|
 |--------|-------|----|
 |Ada|10.5.0|[Site](https://www.adaic.org/)|
-|Bash|3.2.57|[Site](https://www.gnu.org/software/bash/)|
 |C#|10.0.300|[Site](https://dotnet.microsoft.com/en-us/languages/csharp)|
 |C++|C++23|[Site](https://isocpp.org/)|
 |C|C23|[Site](https://www.c-language.org/)|
