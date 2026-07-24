@@ -25,7 +25,7 @@ class Conway {
             for (size_t j = 0; j < width; j++) {
                 std::cout << (GRID_AT(i, j) == 0 ? "." : "#");
             }
-        std::cout << "\n";
+            std::cout << "\n";
         }
     }
 
