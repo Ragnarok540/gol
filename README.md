@@ -40,3 +40,4 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Ruby|2.6.10|[Site](https://www.ruby-lang.org/)|
 |Rust|1.94.1|[Site](https://rust-lang.org/)|
 |Tcl|9.0|[Site](https://www.tcl-lang.org/)|
+|Umka|1.5.6|[Site](https://github.com/vtereshkov/umka-lang)|

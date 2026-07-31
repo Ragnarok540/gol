@@ -66,7 +66,7 @@ fun stepCell(grid: Array<Array<Int>>, x: Int, y: Int): Int {
     val state = query(grid, x, y)
     val neighbors = countNeighbors(grid, x, y)
     val nextState = gameLogic(state, neighbors)
-    return nextState;
+    return nextState
 }
 
 fun simulate(grid: Array<Array<Int>>): Array<Array<Int>> {

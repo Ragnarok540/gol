@@ -1,0 +1,119 @@
+import ( 
+    "std.um"
+)
+
+type Grid = [][20]int
+
+fn mod(x: int, y: int): int {
+    if x > 0 {
+        return x % y
+    }
+    if x < 0 {
+        return y + x % y
+    }
+    return 0
+}
+
+fn assign(grid: Grid, x: int, y: int, state: int) {
+    width := len(grid)
+    height := len(grid[0])
+    grid[mod(x, width)][mod(y, height)] = state
+}
+
+fn query(grid: Grid, x: int, y: int): int {
+    width := len(grid)
+    height := len(grid[0])
+    return grid[mod(x, width)][mod(y, height)]
+}
+
+fn draw(value: int): char {
+    if value == 1 {
+        return '#'
+    }
+    return '.'
+}
+
+fn print(grid: Grid) {
+    for _, row in grid {
+        for _, e in row {
+            printf("%c", draw(e))
+        }
+        printf("\n")
+    }
+}
+
+fn countNeighbors(grid: Grid, x: int, y: int): int {
+    n  := query(grid, x + 1, y    )
+    ne := query(grid, x + 1, y + 1)
+    e  := query(grid, x,     y + 1)
+    se := query(grid, x - 1, y + 1)
+    s  := query(grid, x - 1, y    )
+    sw := query(grid, x - 1, y - 1)
+    w  := query(grid, x,     y - 1)
+    nw := query(grid, x + 1, y - 1)
+    return n + ne + e + se + s + sw + w + nw
+}
+
+fn gameLogic(state: int, neighbors: int): int {
+    if state == 1 {
+        if neighbors < 2 {
+            return 0
+        }
+        if neighbors > 3 {
+            return 0
+        }
+        return state
+    } 
+    if neighbors == 3 {
+        return 1
+    }
+    return state    
+}
+
+fn stepCell(grid: Grid, x: int, y: int): int {
+    state := query(grid, x, y)
+    neighbors := countNeighbors(grid, x, y)
+    nextState := gameLogic(state, neighbors)
+    return nextState
+}
+
+fn simulate(grid: Grid): Grid {
+    height := len(grid)
+    newGrid := make(Grid, height)
+    for i, row in grid {
+        for j, _ in row {
+            nextState := stepCell(grid, i, j)
+            assign(newGrid, i, j, nextState)
+        }
+    }
+    return newGrid
+}
+
+fn clearScreen() {
+    printf("\x1b[2J")
+}
+
+fn sleep(n: real) {
+    t0 := std::clock()
+    for std::clock() - t0 <= n {}
+}
+
+fn main() {
+    g := make(Grid, 10)
+    assign(g, 0, 3, 1)
+    assign(g, 1, 4, 1)
+    assign(g, 2, 2, 1)
+    assign(g, 2, 3, 1)
+    assign(g, 2, 4, 1)
+
+    print(g)
+
+    for true {
+        clearScreen()
+        g = simulate(g)
+        print(g)
+        sleep(0.1)
+    }
+}
+
+// umka Conway.um

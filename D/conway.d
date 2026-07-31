@@ -17,7 +17,7 @@ class Conway {
             foreach (j; 0..width) {
                 write(grid[i][j] == 0 ? "." : "#");
             }
-            writeln();
+            writeln;
         }
     }
 
@@ -71,18 +71,18 @@ class Conway {
     int stepCell(int x, int y) {
         int state = query(x, y);
         int neighbors = countNeighbors(x, y);
-        int next_state = gameLogic(state, neighbors);
-        return next_state;
+        int nextState = gameLogic(state, neighbors);
+        return nextState;
     }
 
     void simulate() {
-        auto new_grid = new int[][](height, width);
+        auto newGrid = new int[][](height, width);
         foreach (i; 0..height) {
             foreach (j; 0..width) {
-                new_grid[i][j] = stepCell(i, j);
+                newGrid[i][j] = stepCell(i, j);
             }
         }
-        grid = new_grid;
+        grid = newGrid;
     }
 
     void clearScreen() {
@@ -101,12 +101,12 @@ void main() {
     conway.assign(2, 3, 1);
     conway.assign(2, 4, 1);
 
-    conway.print();
+    conway.print;
 
     while (true) {
-        conway.clearScreen();
-        conway.simulate();
-        conway.print();
+        conway.clearScreen;
+        conway.simulate;
+        conway.print;
         Thread.sleep(100.msecs);
     }
 }
