@@ -1,35 +1,35 @@
-function new_matrix(height, width)
-    matrix = {}
+function new_grid(height, width)
+    grid = {}
     for i=1, height do
-        matrix[i] = {}
+        grid[i] = {}
         for j=1, width do
-            matrix[i][j] = 0
+            grid[i][j] = 0
         end
     end
-    return matrix
+    return grid
 end
 
-function query(m, x, y)
-    height = #m
-    width = #m[1]
-    return m[x % height + 1][y % width + 1]
+function query(grid, x, y)
+    height = #grid
+    width = #grid[1]
+    return grid[x % height + 1][y % width + 1]
 end
 
-function assign(m, x, y, state)
-    height = #m
-    width = #m[1]
-    m[x % height + 1][y % width + 1] = state
+function assign(grid, x, y, state)
+    height = #grid
+    width = #grid[1]
+    grid[x % height + 1][y % width + 1] = state
 end
 
-function count_neighbors(m, x, y)
-    n = query(m, x + 1, y)
-    ne = query(m, x + 1, y + 1)
-    e = query(m, x, y + 1)
-    se = query(m, x - 1, y + 1)
-    s = query(m, x - 1, y)
-    sw = query(m, x - 1, y - 1)
-    w = query(m, x, y - 1)
-    nw = query(m, x + 1, y - 1)
+function count_neighbors(grid, x, y)
+    n  = query(grid, x + 1, y    )
+    ne = query(grid, x + 1, y + 1)
+    e  = query(grid, x,     y + 1)
+    se = query(grid, x - 1, y + 1)
+    s  = query(grid, x - 1, y    )
+    sw = query(grid, x - 1, y - 1)
+    w  = query(grid, x,     y - 1)
+    nw = query(grid, x + 1, y - 1)
     return n + ne + e + se + s + sw + w + nw
 end
 
@@ -41,8 +41,8 @@ function draw(value)
     end
 end
 
-function print_matrix(m)
-    for y, row in pairs(m) do
+function print_grid(grid)
+    for y, row in pairs(grid) do
         for x, value in pairs(row) do
             io.write(draw(value))
         end
@@ -67,24 +67,24 @@ function game_logic(state, neighbors)
     end
 end
 
-function step_cell(m, x, y)
-    state = query(m, x, y)
-    neighbors = count_neighbors(m, x, y)
+function step_cell(grid, x, y)
+    state = query(grid, x, y)
+    neighbors = count_neighbors(grid, x, y)
     next_state = game_logic(state, neighbors)
     return next_state
 end
 
-function simulate(m)
-    height = #m
-    width = #m[1]
-    new_m = new_matrix(height, width)
+function simulate(grid)
+    height = #grid
+    width = #grid[1]
+    new_g = new_grid(height, width)
     for i=1, height do
         for j=1, width do
-            new_state = step_cell(m, i, j)
-            assign(new_m, i, j, new_state) 
+            new_state = step_cell(grid, i, j)
+            assign(new_g, i, j, new_state) 
         end
     end
-    return new_m
+    return new_g
 end
 
 function clear_screen()
@@ -96,20 +96,20 @@ function sleep(n)
   while os.clock() - t0 <= n do end
 end
 
-matrix = new_matrix(10, 20)
+grid = new_grid(10, 20)
 
-assign(matrix, 1, 4, 1)
-assign(matrix, 2, 5, 1)
-assign(matrix, 3, 3, 1)
-assign(matrix, 3, 4, 1)
-assign(matrix, 3, 5, 1)
+assign(grid, 1, 4, 1)
+assign(grid, 2, 5, 1)
+assign(grid, 3, 3, 1)
+assign(grid, 3, 4, 1)
+assign(grid, 3, 5, 1)
 
-print_matrix(matrix)
+print_grid(grid)
 
 while true do
     clear_screen()
-    matrix = simulate(matrix)
-    print_matrix(matrix)
+    grid = simulate(grid)
+    print_grid(grid)
     sleep(0.1)
 end
 

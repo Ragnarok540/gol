@@ -81,13 +81,13 @@ function stepCell(grid, x, y) {
 function simulate(grid) {
     let height = grid.length
     let width = grid[0].length
-    let newM = newGrid(height, width)
+    let newG = newGrid(height, width)
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
-            assign(newM, i, j, stepCell(grid, i, j))
+            assign(newG, i, j, stepCell(grid, i, j))
         }
     }
-    return newM
+    return newG
 }
 
 function clearScreen() {
