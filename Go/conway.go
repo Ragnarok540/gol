@@ -8,6 +8,8 @@ import (
 const HEIGHT = 10
 const WIDTH = 20
 
+type Grid = [HEIGHT][WIDTH]int
+
 func Mod(x int, y int) int {
 	if x > 0 {
 		return x % y
@@ -18,23 +20,23 @@ func Mod(x int, y int) int {
 	return 0
 }
 
-func Query(matrix [HEIGHT][WIDTH]int, x int, y int) int {
-	return matrix[Mod(x, HEIGHT)][Mod(y, WIDTH)]
+func Query(grid Grid, x int, y int) int {
+	return grid[Mod(x, HEIGHT)][Mod(y, WIDTH)]
 }
 
-func Assign(matrix *[HEIGHT][WIDTH]int, x int, y int, state int) {
-	matrix[Mod(x, HEIGHT)][Mod(y, WIDTH)] = state
+func Assign(grid *Grid, x int, y int, state int) {
+	grid[Mod(x, HEIGHT)][Mod(y, WIDTH)] = state
 }
 
-func CountNeighbors(matrix [HEIGHT][WIDTH]int, x int, y int) int {
-	var n = Query(matrix, x+1, y)
-	var ne = Query(matrix, x+1, y+1)
-	var e = Query(matrix, x, y+1)
-	var se = Query(matrix, x-1, y+1)
-	var s = Query(matrix, x-1, y)
-	var sw = Query(matrix, x-1, y-1)
-	var w = Query(matrix, x, y-1)
-	var nw = Query(matrix, x+1, y-1)
+func CountNeighbors(grid Grid, x int, y int) int {
+	var n  = Query(grid, x + 1, y    )
+	var ne = Query(grid, x + 1, y + 1)
+	var e  = Query(grid, x,     y + 1)
+	var se = Query(grid, x - 1, y + 1)
+	var s  = Query(grid, x - 1, y    )
+	var sw = Query(grid, x - 1, y - 1)
+	var w  = Query(grid, x,     y - 1)
+	var nw = Query(grid, x + 1, y - 1)
 	return n + ne + e + se + s + sw + w + nw
 }
 
@@ -46,10 +48,10 @@ func Draw(value int) byte {
 	}
 }
 
-func Print(matrix [HEIGHT][WIDTH]int) {
-	for i := range matrix {
-		for j := range matrix[i] {
-			fmt.Printf("%c", Draw(matrix[i][j]))
+func Print(grid Grid) {
+	for i := range grid {
+		for j := range grid[i] {
+			fmt.Printf("%c", Draw(grid[i][j]))
 		}
 		fmt.Println()
 	}
@@ -72,18 +74,18 @@ func GameLogic(state int, neighbors int) int {
 	}
 }
 
-func StepCell(matrix [HEIGHT][WIDTH]int, x int, y int) int {
-	var state = Query(matrix, x, y)
-	var neighbors = CountNeighbors(matrix, x, y)
+func StepCell(grid Grid, x int, y int) int {
+	var state = Query(grid, x, y)
+	var neighbors = CountNeighbors(grid, x, y)
 	var nextState = GameLogic(state, neighbors)
 	return nextState
 }
 
-func Simulate(matrix [HEIGHT][WIDTH]int) [HEIGHT][WIDTH]int {
-	var newMatrix [HEIGHT][WIDTH]int
-	for x := range matrix {
-		for y := range matrix[x] {
-			newMatrix[x][y] = StepCell(matrix, x, y)
+func Simulate(grid Grid) Grid {
+	var newMatrix Grid
+	for x := range grid {
+		for y := range grid[x] {
+			newMatrix[x][y] = StepCell(grid, x, y)
 		}
 	}
 	return newMatrix
@@ -94,20 +96,20 @@ func ClearScreen() {
 }
 
 func main() {
-	var matrix [HEIGHT][WIDTH]int
+	var grid Grid
 
-	Assign(&matrix, 0, 3, 1)
-	Assign(&matrix, 1, 4, 1)
-	Assign(&matrix, 2, 2, 1)
-	Assign(&matrix, 2, 3, 1)
-	Assign(&matrix, 2, 4, 1)
+	Assign(&grid, 0, 3, 1)
+	Assign(&grid, 1, 4, 1)
+	Assign(&grid, 2, 2, 1)
+	Assign(&grid, 2, 3, 1)
+	Assign(&grid, 2, 4, 1)
 
-	Print(matrix)
+	Print(grid)
 
 	for {
 		ClearScreen()
-		matrix = Simulate(matrix)
-		Print(matrix)
+		grid = Simulate(grid)
+		Print(grid)
 		time.Sleep(100 * time.Millisecond)
 	}
 }
