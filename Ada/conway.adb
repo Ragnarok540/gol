@@ -6,19 +6,19 @@ with Ada.Strings.Fixed;
 
 package body Conway is
    use Ada.Text_IO;
-   Matrix : Grid;
+   C : Grid;
 
-   function Count_Neighbors(M : Grid; X : Rows; Y : Cols) return Neighbors is
+   function Count_Neighbors(G : Grid; X : Rows; Y : Cols) return Neighbors is
       N, NE, E, SE, S, SW, W, NW : Neighbors;
    begin
-      N  := Neighbors(M(X + 1, Y    ));
-      NE := Neighbors(M(X + 1, Y + 1));
-      E  := Neighbors(M(X,     Y + 1));
-      SE := Neighbors(M(X - 1, Y + 1));
-      S  := Neighbors(M(X - 1, Y    ));
-      SW := Neighbors(M(X - 1, Y - 1));
-      W  := Neighbors(M(X,     Y - 1));
-      NW := Neighbors(M(X + 1, Y - 1));
+      N  := Neighbors(G(X + 1, Y    ));
+      NE := Neighbors(G(X + 1, Y + 1));
+      E  := Neighbors(G(X,     Y + 1));
+      SE := Neighbors(G(X - 1, Y + 1));
+      S  := Neighbors(G(X - 1, Y    ));
+      SW := Neighbors(G(X - 1, Y - 1));
+      W  := Neighbors(G(X,     Y - 1));
+      NW := Neighbors(G(X + 1, Y - 1));
       return N + NE + E + SE + S + SW + W + NW;
    end;
 
@@ -31,12 +31,12 @@ package body Conway is
       end if;
    end;
 
-   procedure Print(M : Grid) is
+   procedure Print(G : Grid) is
    S : State;
    begin
       for Row in Rows loop
          for Col in Cols loop
-            S := M(Row, Col);
+            S := G(Row, Col);
             Put(Draw(S));
          end loop;
          New_Line;
@@ -61,26 +61,26 @@ package body Conway is
       end if;
    end;
 
-   function Step_Cell(M : Grid; X : Rows; Y : Cols) return State is
+   function Step_Cell(G : Grid; X : Rows; Y : Cols) return State is
       S : State;
       N : Neighbors;
       Next_S : State;
    begin
-      S := M(X, Y);
-      N := Count_Neighbors(M, X, Y);
+      S := G(X, Y);
+      N := Count_Neighbors(G, X, Y);
       Next_S := Game_Logic(S, N);
       return Next_S;
    end;
 
-   function Simulate(M : Grid) return Grid is
-      New_M : Grid;
+   function Simulate(G : Grid) return Grid is
+      New_G : Grid;
    begin
       for Row in Rows loop
          for Col in Cols loop
-            New_M(Row, Col) := Step_Cell(M, Row, Col);
+            New_G(Row, Col) := Step_Cell(G, Row, Col);
          end loop;
       end loop;
-      return New_M;
+      return New_G;
    end;
 
    procedure Clear_Screen is
@@ -90,18 +90,18 @@ package body Conway is
    end;
 
 begin
-   Matrix(0, 3) := 1;
-   Matrix(1, 4) := 1;
-   Matrix(2, 2) := 1;
-   Matrix(2, 3) := 1;
-   Matrix(2, 4) := 1;
+   C(0, 3) := 1;
+   C(1, 4) := 1;
+   C(2, 2) := 1;
+   C(2, 3) := 1;
+   C(2, 4) := 1;
 
-   Print(Matrix);
+   Print(C);
 
    while True loop
       Clear_Screen;
-      Matrix := Simulate(Matrix);
-      Print(Matrix);
+      C := Simulate(C);
+      Print(C);
       delay 0.1;
    end loop;
 end Conway;

@@ -6,11 +6,11 @@ package Conway is
    type Cols is mod Width;
    type Grid is array (Rows, Cols) of State;
    type Neighbors is range 0 .. 8;
-   function Count_Neighbors(M : Grid; X : Rows; Y : Cols) return Neighbors;
+   function Count_Neighbors(G : Grid; X : Rows; Y : Cols) return Neighbors;
    function Draw(Value : State) return Character;
-   procedure Print(M : in  Grid);
+   procedure Print(G : in  Grid);
    function Game_Logic(S : State; N : Neighbors) return State;
-   function Step_Cell(M : Grid; X : Rows; Y : Cols) return State;
-   function Simulate(M : Grid) return Grid;
+   function Step_Cell(G : Grid; X : Rows; Y : Cols) return State;
+   function Simulate(G : Grid) return Grid;
    procedure Clear_Screen;
 end Conway;
