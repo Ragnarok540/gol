@@ -82,13 +82,13 @@ func StepCell(grid Grid, x int, y int) int {
 }
 
 func Simulate(grid Grid) Grid {
-	var newMatrix Grid
+	var newGrid Grid
 	for x := range grid {
 		for y := range grid[x] {
-			newMatrix[x][y] = StepCell(grid, x, y)
+			newGrid[x][y] = StepCell(grid, x, y)
 		}
 	}
-	return newMatrix
+	return newGrid
 }
 
 func ClearScreen() {

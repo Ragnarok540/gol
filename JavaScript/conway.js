@@ -11,7 +11,7 @@ function mod(x, y) {
     return 0
 }
 
-function newMatrix(height, width) {
+function newGrid(height, width) {
     let arr = new Array(height)
     for (let i = 0; i < arr.length; i++) {
         arr[i] = new Array(width).fill(0)
@@ -19,40 +19,36 @@ function newMatrix(height, width) {
     return arr
 }
 
-function query(matrix, x, y) {
-    let height = matrix.length
-    let width = matrix[0].length
-    return matrix[mod(x, height)][mod(y, width)]
+function query(grid, x, y) {
+    let height = grid.length
+    let width = grid[0].length
+    return grid[mod(x, height)][mod(y, width)]
 }
 
-function assign(matrix, x, y, state) {
-    let height = matrix.length
-    let width = matrix[0].length
-    matrix[mod(x, height)][mod(y, width)] = state
+function assign(grid, x, y, state) {
+    let height = grid.length
+    let width = grid[0].length
+    grid[mod(x, height)][mod(y, width)] = state
 }
 
-function countNeighbors(matrix, x, y) {
-    let n = query(matrix, x + 1, y)
-    let ne = query(matrix, x + 1, y + 1)
-    let e = query(matrix, x, y + 1)
-    let se = query(matrix, x - 1, y + 1)
-    let s = query(matrix, x - 1, y)
-    let sw = query(matrix, x - 1, y - 1)
-    let w = query(matrix, x, y - 1)
-    let nw = query(matrix, x + 1, y - 1)
+function countNeighbors(grid, x, y) {
+    let n  = query(grid, x + 1, y    )
+    let ne = query(grid, x + 1, y + 1)
+    let e  = query(grid, x,     y + 1)
+    let se = query(grid, x - 1, y + 1)
+    let s  = query(grid, x - 1, y    )
+    let sw = query(grid, x - 1, y - 1)
+    let w  = query(grid, x,     y - 1)
+    let nw = query(grid, x + 1, y - 1)
     return [n, ne, e, se, s, sw, w, nw].reduce((a, b) => a + b, 0)
 }
 
-function draw(value) {
-    return value ? '#' : '.'
-}
-
-function printMatrix(matrix) {
-    let height = matrix.length
-    let width = matrix[0].length
+function printGrid(grid) {
+    let height = grid.length
+    let width = grid[0].length
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
-            process.stdout.write(`${draw(matrix[i][j])}`)
+            process.stdout.write(`${grid[i][j] ? '#' : '.'}`)
         }
         console.log()
     }
@@ -75,20 +71,20 @@ function gameLogic(state, neighbors) {
     }
 }
 
-function stepCell(matrix, x, y) {
-    let state = query(matrix, x, y)
-    let neighbors = countNeighbors(matrix, x, y)
+function stepCell(grid, x, y) {
+    let state = query(grid, x, y)
+    let neighbors = countNeighbors(grid, x, y)
     let next_state = gameLogic(state, neighbors)
     return next_state
 }
 
-function simulate(matrix) {
-    let height = matrix.length
-    let width = matrix[0].length
-    let newM = newMatrix(height, width)
+function simulate(grid) {
+    let height = grid.length
+    let width = grid[0].length
+    let newM = newGrid(height, width)
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
-            assign(newM, i, j, stepCell(matrix, i, j))
+            assign(newM, i, j, stepCell(grid, i, j))
         }
     }
     return newM
@@ -104,19 +100,19 @@ function sleep(ms) {
     })
 }
 
-let array = newMatrix(HEIGHT, WIDTH)
-assign(array, 0, 3, 1)
-assign(array, 1, 4, 1)
-assign(array, 2, 2, 1)
-assign(array, 2, 3, 1)
-assign(array, 2, 4, 1)
+let grid = newGrid(HEIGHT, WIDTH)
+assign(grid, 0, 3, 1)
+assign(grid, 1, 4, 1)
+assign(grid, 2, 2, 1)
+assign(grid, 2, 3, 1)
+assign(grid, 2, 4, 1)
 
-printMatrix(array)
+printGrid(grid)
 
 for (;;) {
     clearScreen()
-    array = simulate(array)
-    printMatrix(array)
+    grid = simulate(grid)
+    printGrid(grid)
     await sleep(100)
 }
 
