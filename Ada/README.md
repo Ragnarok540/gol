@@ -1,7 +1,7 @@
 # Ada
 
 - _In Strong Typing We Trust_
-- Features wrap-around arithmetic using the keyword `mod`.
+- Features wrap-around arithmetic using the keyword `mod`
 
 ## Applications
 
