@@ -24,10 +24,12 @@ end;
 
 ## Related Languages
 
-- Pascal
-- Ruby
-- Lua
+- Algol
 - Elixir
+- Lua
+- Pascal
+- [Ruby](../Ruby/README.md)
+- Simula
 
 ## References
 

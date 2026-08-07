@@ -57,11 +57,11 @@ func stepCell(g: Grid, x: int, y: int): int =
     return nextState
 
 func simulate(g: Grid): Grid =
-    var new_g: Grid
+    var newG: Grid
     for x in 0..Height-1:
         for y in 0..Width-1:
-            new_g[x][y] = g.stepCell(x, y)
-    return new_g
+            newG[x][y] = g.stepCell(x, y)
+    return newG
 
 proc clearScreen() =
     stdout.write("\x1b[2J")
