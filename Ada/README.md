@@ -25,9 +25,8 @@ end;
 ## Related Languages
 
 - Algol
-- Elixir
-- Lua
 - Pascal
+- Nim
 - [Ruby](../Ruby/README.md)
 - Simula
 

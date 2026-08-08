@@ -19,7 +19,7 @@ puts "Hello World"
 
 - [Ada](../Ada/README.md)
 - Crystal
-- Elixir
+- [Elixir](../Elixir/README.md)
 - Groovy
 - Lua
 - Python
