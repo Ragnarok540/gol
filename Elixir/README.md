@@ -1,5 +1,6 @@
 # Elixir
 
+- _Let it Crash_
 - _Functional, Concurrent, Pragmatic, Fun_
 - Everything is an expression
 
@@ -21,7 +22,7 @@ IO.puts("Hello World!")
 ## Related Languages
 
 - Clojure
-- Erlang
+- [Erlang](../Erlang/README.md)
 - [Ruby](../Ruby/README.md)
 
 ## References
