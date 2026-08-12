@@ -31,7 +31,7 @@ hello_world() ->
 - Go
 - Lisp
 - Prolog
-- Rust
+- [Rust](../Rust/README.md)
 - Smalltalk
 
 ## References
