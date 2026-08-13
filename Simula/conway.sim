@@ -1,0 +1,36 @@
+begin
+    integer height = 10;
+    integer width = 20;
+    integer start = 1;
+    integer last = height * width;
+    integer array grid(start:last);
+
+    procedure print(grid);
+        integer array grid;
+    begin
+        integer i;
+        for i := start step 1 until last do
+        begin
+            outint(grid(i), 0)
+            if mod(i, width) = 0 then outimage;
+        end
+    end;
+
+    procedure assign(grid, x, y, state);
+        integer array grid;
+        integer x;
+        integer y;
+        integer state;
+    begin
+        integer i = x * width + y;
+        grid(i) := state
+    end;
+
+    assign(grid, 1, 4, 1)
+    assign(grid, 2, 5, 1)
+    assign(grid, 3, 3, 1)
+    assign(grid, 3, 4, 1)
+    assign(grid, 3, 5, 1)
+
+    print(grid)
+end

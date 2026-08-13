@@ -1,4 +1,4 @@
-# Erlang
+# Rust
 
 - _A language empowering everyone to build reliable and efficient software_
 - Uses a "Borrow Checker" for memory safety at compile time
