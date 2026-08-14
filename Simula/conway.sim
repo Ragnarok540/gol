@@ -6,13 +6,19 @@ begin
         integer last = height * width - 1;
         integer array grid(start:last);
 
+        procedure draw(state);
+            integer state;
+        begin
+            if state = 1 then outchar('#') else outchar('.');
+        end;
+
         procedure print;
         begin
             integer i;
-            for i := 0 step 1 until last do
+            for i := start step 1 until last do
             begin
                if mod(i, width) = 0 then outimage;
-               outint(grid(i), 0);
+               draw(grid(i));
             end;
         end;
 
@@ -108,10 +114,21 @@ begin
             setGrid(newGrid);
         end;
 
+        procedure sleep(n);
+            long real n;
+        begin
+            long real t0;
+            t0 := clockTime;
+            while clockTime - t0 <= n do
+            begin
+            end;
+        end;
+
     end;
 
     ref (Conway) c;
     c :- new Conway(10, 20);
+
     c.assign(0, 3, 1);
     c.assign(1, 4, 1);
     c.assign(2, 2, 1);
@@ -124,6 +141,9 @@ begin
     begin
         c.simulate;
         c.print;
+        c.sleep(0.001);
     end;
 
 end
+
+-- run with https://portablesimula.github.io/github.io/
