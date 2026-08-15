@@ -20,7 +20,7 @@ fn main() {
 
 ## Related Languages
 
-- C++
+- [C++](../C++/README.md)
 - C
 - D
 - Elm
