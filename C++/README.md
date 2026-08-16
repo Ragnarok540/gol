@@ -25,7 +25,8 @@ int main() {
 - C
 - C#
 - D
-- Java
+- [Java](../Java/README.md)
+- Objective-C
 - Simula
 - Smalltalk
 - [Rust](../Rust/README.md)
