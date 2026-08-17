@@ -28,7 +28,7 @@ end;
 - Pascal
 - Nim
 - [Ruby](../Ruby/README.md)
-- Simula
+- [Simula](../Simula/README.md)
 
 ## References
 

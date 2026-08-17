@@ -27,7 +27,7 @@ int main() {
 - D
 - [Java](../Java/README.md)
 - Objective-C
-- Simula
+- [Simula](../Simula/README.md)
 - Smalltalk
 - [Rust](../Rust/README.md)
 

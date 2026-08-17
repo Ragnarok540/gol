@@ -31,7 +31,7 @@ public class HelloWorld {
 - Kotlin
 - Objective-C
 - Scala
-- Simula
+- [Simula](../Simula/README.md)
 - Smalltalk
 
 ## References
