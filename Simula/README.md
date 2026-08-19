@@ -24,11 +24,12 @@ end;
 - [C++](../C++/README.md)
 - C#
 - Eiffel
-- Java
+- [Java](../Java/README.md)
 - Object Pascal
 - Objective-C
+- [Python](../Python/README.md)
+- [Ruby](../Ruby/README.md)
 - Smalltalk
-- Other Object-Oriented Languages
 
 ## References
 

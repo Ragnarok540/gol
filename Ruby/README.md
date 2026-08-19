@@ -22,7 +22,7 @@ puts "Hello World"
 - [Elixir](../Elixir/README.md)
 - Groovy
 - Lua
-- Python
+- [Python](../Python/README.md)
 
 ## References
 

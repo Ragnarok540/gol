@@ -36,7 +36,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Matlab|11.3.0|[Site](https://octave.org/)||
 |Nim|2.2.10|[Site](https://nim-lang.org/)||
 |Perl|5.34.1|[Site](https://www.perl.org/)||
-|Python|3.14.0|[Site](https://www.python.org/)||
+|Python|3.14.0|[Site](https://www.python.org/)|[README](/Python/README.md)|
 |R|4.5.2|[Site](https://www.r-project.org/)||
 |Ruby|2.6.10|[Site](https://www.ruby-lang.org/)|[README](/Ruby/README.md)|
 |Rust|1.94.1|[Site](https://rust-lang.org/)|[README](/Rust/README.md)|
