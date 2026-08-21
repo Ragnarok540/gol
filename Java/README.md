@@ -1,6 +1,6 @@
 # Java
 
-- _Write Onece, Run Anywhere_
+- _Write Once, Run Anywhere_
 - Uses a virtual machine and garbage collection
 
 ## Applications

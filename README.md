@@ -28,6 +28,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Erlang|29|[Site](https://www.erlang.org/)|[README](/Erlang/README.md)|
 |Fortran|2023|[Site](https://fortran-lang.org/)||
 |Go|1.26.2|[Site](https://go.dev/)||
+|Haxe|4.3.7|[Site](https://haxe.org/)||
 |Io|20151111|[Site](https://iolanguage.org/)||
 |Java|25.0.1|[Site](https://openjdk.org/)|[README](/Java/README.md)|
 |JavaScript|20.19.5|[Site](https://nodejs.org/en)||

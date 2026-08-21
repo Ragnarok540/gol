@@ -117,7 +117,6 @@ int main() {
     assign(conway, 2, 3, 1);
     assign(conway, 2, 4, 1);
 
-    conway = simulate(conway);
     print(conway);
 
     for (;;) {
