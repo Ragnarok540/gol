@@ -44,3 +44,4 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Simula|67|[Site](https://www.mn.uio.no/english/services/it/simula/)|[README](/Simula/README.md)|
 |Tcl|9.0|[Site](https://www.tcl-lang.org/)||
 |Umka|1.5.6|[Site](https://github.com/vtereshkov/umka-lang)||
+|V|0.5.2|[Site](https://vlang.io/)||

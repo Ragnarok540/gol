@@ -25,7 +25,7 @@ class Conway {
         for (x in 0...this.height) {
             var row = new StringBuf();
             for (y in 0...this.width) {
-                row.addChar(this.draw(grid[x][y]));
+                row.addChar(draw(grid[x][y]));
             }
             haxe.Log.trace(row.toString(), null);
         }
@@ -50,14 +50,14 @@ class Conway {
     }
 
     function countNeighbors(x, y) {
-        var n  = this.query(x + 1, y    );
-        var ne = this.query(x + 1, y + 1);
-        var e  = this.query(x,     y + 1);
-        var se = this.query(x - 1, y + 1);
-        var s  = this.query(x - 1, y    );
-        var sw = this.query(x - 1, y - 1);
-        var w  = this.query(x,     y - 1);
-        var nw = this.query(x + 1, y - 1);
+        var n  = query(x + 1, y    );
+        var ne = query(x + 1, y + 1);
+        var e  = query(x,     y + 1);
+        var se = query(x - 1, y + 1);
+        var s  = query(x - 1, y    );
+        var sw = query(x - 1, y - 1);
+        var w  = query(x,     y - 1);
+        var nw = query(x + 1, y - 1);
         return n + ne + e + se + s + sw + w + nw;
     }
 
@@ -79,7 +79,7 @@ class Conway {
     }
 
     function stepCell(x, y) {
-        var state = this.query( x, y);
+        var state = query(x, y);
         var neighbors = countNeighbors(x, y);
         var nextState = gameLogic(state, neighbors);
         return nextState;
@@ -111,6 +111,7 @@ class Conway {
         c.print();
 
         while (true) {
+            c.clearScreen();
             c.simulate();
             c.print();
             Sys.sleep(0.1);
