@@ -22,7 +22,7 @@ print("Hello, World!")
 
 - [C++](../C++/README.md)
 - Groovy
-- JavaScript
+- [JavaScript](../JavaScript/README.md)
 - Nim
 - Perl
 - [Ruby](../Ruby/README.md)

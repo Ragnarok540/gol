@@ -31,7 +31,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Haxe|4.3.7|[Site](https://haxe.org/)||
 |Io|20151111|[Site](https://iolanguage.org/)||
 |Java|25.0.1|[Site](https://openjdk.org/)|[README](/Java/README.md)|
-|JavaScript|20.19.5|[Site](https://nodejs.org/en)||
+|JavaScript|20.19.5|[Site](https://nodejs.org/en)|[README](/JavaScript/README.md)|
 |Kotlin|2.4.0|[Site](https://kotlinlang.org/)||
 |Lua|5.5.0|[Site](https://www.lua.org/)||
 |Matlab|11.3.0|[Site](https://octave.org/)||
