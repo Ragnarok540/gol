@@ -2,7 +2,7 @@
 
 - _Friendly & Easy to Learn_
 - Runnable pseudo-code
-- Indentation is part of the Syntax
+- Indentation is part of the syntax
 
 ## Applications
 
@@ -23,7 +23,7 @@ print("Hello, World!")
 - [C++](../C++/README.md)
 - Groovy
 - [JavaScript](../JavaScript/README.md)
-- Nim
+- [Nim](../Nim/README.md)
 - Perl
 - [Ruby](../Ruby/README.md)
 - Scala
