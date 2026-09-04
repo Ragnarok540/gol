@@ -24,6 +24,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |C++|C++23|[Site](https://isocpp.org/)|[README](/C++/README.md)|
 |C|C23|[Site](https://www.c-language.org/)||
 |D|1.42.0|[Site](https://dlang.org/)||
+|Eiffel|2022|[Site](https://www.liberty-eiffel.org/)||
 |Elixir|1.20.1|[Site](https://elixir-lang.org/)|[README](/Elixir/README.md)|
 |Erlang|29|[Site](https://www.erlang.org/)|[README](/Erlang/README.md)|
 |Fortran|2023|[Site](https://fortran-lang.org/)||

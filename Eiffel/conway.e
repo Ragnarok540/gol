@@ -1,11 +1,8 @@
-class
-    CONWAY
-inherit
-    POSIX_PROCESS
-create
-    make
+class CONWAY inherit POSIX_PROCESS
+create make
 feature
     g: GRID
+
     make
         local
             r: INTEGER
@@ -20,18 +17,15 @@ feature
 
             g.print_grid
 
-            from
-            until
-               false
-            loop
+            from until False loop
                 g.simulate
                 g.print_grid
                 r := sleep (1.to_natural_32).to_integer_32
             end
-
         end
+
 end
 
 -- mkdir -p bin
--- ../../../../Downloads/Liberty/target/bin/se compile conway.e -o bin/conway -clean
+-- se compile conway.e -o bin/conway -clean
 -- ./bin/conway
