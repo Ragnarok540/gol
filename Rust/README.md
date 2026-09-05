@@ -21,7 +21,7 @@ fn main() {
 ## Related Languages
 
 - [C++](../C++/README.md)
-- C
+- [C](../C/README.md)
 - D
 - Elm
 - [Erlang](../Erlang/README.md)

@@ -22,7 +22,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Ada|10.5.0|[Site](https://www.adaic.org/)|[README](/Ada/README.md)|
 |C#|10.0.300|[Site](https://dotnet.microsoft.com/en-us/languages/csharp)||
 |C++|C++23|[Site](https://isocpp.org/)|[README](/C++/README.md)|
-|C|C23|[Site](https://www.c-language.org/)||
+|C|C23|[Site](https://www.c-language.org/)|[README](/C/README.md)|
 |D|1.42.0|[Site](https://dlang.org/)||
 |Eiffel|2022|[Site](https://www.liberty-eiffel.org/)||
 |Elixir|1.20.1|[Site](https://elixir-lang.org/)|[README](/Elixir/README.md)|

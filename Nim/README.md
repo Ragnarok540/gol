@@ -25,7 +25,7 @@ echo("hello", " world")
 ## Related Languages
 
 - [Ada](../Ada/README.md)
-- C
+- [C](../C/README.md)
 - [C++](../C++/README.md)
 - Crystal
 - [JavaScript](../JavaScript/README.md)

@@ -22,7 +22,7 @@ int main() {
 
 ## Related Languages
 
-- C
+- [C](../C/README.md)
 - C#
 - D
 - [Java](../Java/README.md)
