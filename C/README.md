@@ -28,7 +28,7 @@ int main(void) {
 - C#
 - Objective-C
 - D
-- Fortran
+- [Fortran](../Fortran/README.md)
 - [Nim](../Nim/README.md)
 - Zig
 

@@ -27,7 +27,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Eiffel|2022|[Site](https://www.liberty-eiffel.org/)||
 |Elixir|1.20.1|[Site](https://elixir-lang.org/)|[README](/Elixir/README.md)|
 |Erlang|29|[Site](https://www.erlang.org/)|[README](/Erlang/README.md)|
-|Fortran|2023|[Site](https://fortran-lang.org/)||
+|Fortran|2023|[Site](https://fortran-lang.org/)|[README](/Fortran/README.md)|
 |Go|1.26.2|[Site](https://go.dev/)||
 |Haxe|4.3.7|[Site](https://haxe.org/)||
 |Io|20151111|[Site](https://iolanguage.org/)||
