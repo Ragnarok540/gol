@@ -25,7 +25,7 @@ end program helloworld
 - [C](../C/README.md)
 - Chapel
 - J
-- Matlab
+- [Matlab](../Matlab/README.md)
 
 ## References
 
