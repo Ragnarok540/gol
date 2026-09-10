@@ -95,7 +95,6 @@ class Conway {
     func clearScreen() {
         print("\u{001B}[2J");
     }
-
 }
 
 var c: Conway = Conway(width: 20, height: 10)

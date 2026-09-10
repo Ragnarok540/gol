@@ -24,7 +24,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Language|Version|Site|README|
 |--------|-------|----|------|
 |Ada|10.5.0|[Site](https://www.adaic.org/)|[README](/Ada/README.md)|
-|C#|10.0.300|[Site](https://dotnet.microsoft.com/en-us/languages/csharp)||
+|C#|10.0.300|[Site](https://dotnet.microsoft.com/en-us/languages/csharp)|[README](/C#/README.md)|
 |C++|C++23|[Site](https://isocpp.org/)|[README](/C++/README.md)|
 |C|C23|[Site](https://www.c-language.org/)|[README](/C/README.md)|
 |D|1.42.0|[Site](https://dlang.org/)||

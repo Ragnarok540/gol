@@ -24,7 +24,7 @@ public class HelloWorld {
 ## Related Languages
 
 - [C++](../C++/README.md)
-- C#
+- [C#](../C#/README.md)
 - Clojure
 - D
 - Groovy

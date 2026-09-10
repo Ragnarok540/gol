@@ -23,7 +23,7 @@ end;
 
 - [Ada](../Ada/README.md)
 - [C++](../C++/README.md)
-- C#
+- [C#](../C#/README.md)
 - Eiffel
 - [Java](../Java/README.md)
 - Object Pascal

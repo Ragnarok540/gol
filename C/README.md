@@ -25,7 +25,7 @@ int main(void) {
 
 - B
 - [C++](../C++/README.md)
-- C#
+- [C#](../C#/README.md)
 - Objective-C
 - D
 - [Fortran](../Fortran/README.md)

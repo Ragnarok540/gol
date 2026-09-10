@@ -23,7 +23,7 @@ int main() {
 ## Related Languages
 
 - [C](../C/README.md)
-- C#
+- [C#](../C#/README.md)
 - D
 - [Java](../Java/README.md)
 - Objective-C
