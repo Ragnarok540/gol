@@ -17,7 +17,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 
 ## Number of Languages
 
-- 28
+- 29
 
 ## Implementation Languages
 
@@ -51,3 +51,4 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Tcl|9.0|[Site](https://www.tcl-lang.org/)||
 |Umka|1.5.6|[Site](https://github.com/vtereshkov/umka-lang)||
 |V|0.5.2|[Site](https://vlang.io/)||
+|Wren|0.4.0|[Site](https://wren.io/)||

@@ -9,3 +9,4 @@ bin/
 *.o
 META-INF/
 *.mod
+wren_cli
