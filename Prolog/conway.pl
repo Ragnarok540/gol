@@ -65,36 +65,25 @@ conway(Grid, NextGrid) :-
     step_cell(Grid, 1, 0, G10), step_cell(Grid, 1, 1, G11), step_cell(Grid, 1, 2, G12), step_cell(Grid, 1, 3, G13), step_cell(Grid, 1, 4, G14),
     step_cell(Grid, 2, 0, G20), step_cell(Grid, 2, 1, G21), step_cell(Grid, 2, 2, G22), step_cell(Grid, 2, 3, G23), step_cell(Grid, 2, 4, G24),
     step_cell(Grid, 3, 0, G30), step_cell(Grid, 3, 1, G31), step_cell(Grid, 3, 2, G32), step_cell(Grid, 3, 3, G33), step_cell(Grid, 3, 4, G34),
-    step_cell(Grid, 4, 0, G40), step_cell(Grid, 4, 1, G41), step_cell(Grid, 4, 2, G42), step_cell(Grid, 4, 3, G43), step_cell(Grid, 4, 4, G44),
-    maplist(portray_clause, NextGrid), nl.
+    step_cell(Grid, 4, 0, G40), step_cell(Grid, 4, 1, G41), step_cell(Grid, 4, 2, G42), step_cell(Grid, 4, 3, G43), step_cell(Grid, 4, 4, G44).
+
+loop(Grid) :-
+    conway(Grid, NextGrid),
+    maplist(portray_clause, NextGrid), nl,
+    sleep(1),
+    loop(NextGrid).
 
 start :-
-    Grid0 = [
+    Grid = [
         [0,1,0,0,0],
         [0,0,1,0,0],
         [1,1,1,0,0],
         [0,0,0,0,0],
         [0,0,0,0,0]
     ],
-    maplist(portray_clause, Grid0), nl,
-    conway(Grid0, Grid1),
-    conway(Grid1, Grid2),
-    conway(Grid2, Grid3),
-    conway(Grid3, Grid4),
-    conway(Grid4, Grid5),
-    conway(Grid5, Grid6),
-    conway(Grid6, Grid7),
-    conway(Grid7, Grid8),
-    conway(Grid8, Grid9),
-    conway(Grid9, Grid10),
-    conway(Grid10, Grid11),
-    conway(Grid11, Grid12),
-    conway(Grid12, Grid13),
-    conway(Grid13, Grid14),
-    conway(Grid14, Grid15),
-    conway(Grid15, Grid16),
-    conway(Grid16, Grid17),
-    conway(Grid17, Grid18),
-    conway(Grid18, Grid19),
-    conway(Grid19, Grid20),
-    conway(Grid20, _).
+    maplist(portray_clause, Grid), nl,
+    loop(Grid).
+
+% gprolog
+% [conway].
+% start.
