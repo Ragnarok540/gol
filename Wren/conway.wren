@@ -99,7 +99,6 @@ class Conway {
         }
         for (i in 0...height) {
             for (j in 0...width) {
-                //System.print(i * width + j)
                 newGrid[i * width + j] = stepCell(i, j)
             }
         }
@@ -114,7 +113,6 @@ class Conway {
     clearScreen {
         System.print("\x1B[2J")
     }
-
 }
 
 var c = Conway.new(10, 20)
