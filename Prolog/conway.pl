@@ -32,14 +32,14 @@ game_logic(State, Neighbors, NextState) :-
     State = 1,
     Neighbors > 3,
     NextState = 0.
-game_logic(State, _, NextState) :-
+game_logic(State, _Neighbors, NextState) :-
     State = 1,
     NextState = State.
 game_logic(State, Neighbors, NextState) :-
     State = 0,
     Neighbors = 3,
     NextState = 1.
-game_logic(State, _, NextState) :-
+game_logic(State, _Neighbors, NextState) :-
     State = 0,
     NextState = State.
 
@@ -48,7 +48,7 @@ step_cell(Grid, R, C, NextState) :-
     count_neighbors(Grid, R, C, Neighbors),
     game_logic(State, Neighbors, NextState).
 
-conway(Grid, NextGrid) :-
+simulate(Grid, NextGrid) :-
     NextGrid = [
         [G00,G01,G02,G03,G04],
         [G10,G11,G12,G13,G14],
@@ -63,9 +63,9 @@ conway(Grid, NextGrid) :-
     step_cell(Grid, 4, 0, G40), step_cell(Grid, 4, 1, G41), step_cell(Grid, 4, 2, G42), step_cell(Grid, 4, 3, G43), step_cell(Grid, 4, 4, G44).
 
 loop(Grid) :-
-    conway(Grid, NextGrid),
-    maplist(portray_clause, NextGrid), nl,
+    simulate(Grid, NextGrid),
     sleep(1),
+    maplist(portray_clause, NextGrid), nl,
     loop(NextGrid).
 
 start :-
