@@ -9,7 +9,10 @@ grid size cells erase
 variable new-grid limit cells allot
 new-grid size cells erase
 
-: fm ( x y -- r c ) swap dup width mod swap height mod ;
+variable x
+variable y
+
+: fm ( x y -- r c ) swap width mod swap height mod ;
 : index ( r c -- i ) width rot * + ;
 : query-grid ( r c -- n ) fm index cells grid + @ ;
 : assign-grid ( n r c -- ) index cells grid + ! ;
@@ -26,22 +29,17 @@ new-grid size cells erase
         i cells new-grid + @
         i cells grid + !
     loop ;
-: copy-params ( a b -- a b a b ) over over ;
-\ : n ( x y -- n ) 
-\ : count-neighbors ( x y -- n )
-    \ copy-params
-    \ swap 1 + swap query-grid \ n
-    \ x 1 + y 1 + query-grid
-    \ rot rot copy-params
-    \ 1 +           query-grid \ e
-    \ x 1 - y 1 + query-grid
-    \ rot rot copy-params
-    \ swap 1 - swap query-grid \ s
-    \ x 1 - y 1 - query-grid
-    \ rot rot copy-params
-    \ 1 -           query-grid \ w
-    \ x 1 + y 1 - query-grid
-    \ + + ;
+: count-neighbors ( x y -- n )
+    y ! x !
+    x @ 1 + y @     query-grid \ n
+    x @ 1 + y @ 1 + query-grid \ ne
+    x @     y @ 1 + query-grid \ e
+    x @ 1 - y @ 1 + query-grid \ se
+    x @ 1 - y @     query-grid \ s
+    x @ 1 - y @ 1 - query-grid \ sw
+    x @     y @ 1 - query-grid \ w
+    x @ 1 + y @ 1 - query-grid \ nw
+    + + + + + + + ;
 
 1 0 1 assign-grid
 1 1 2 assign-grid
@@ -49,12 +47,7 @@ new-grid size cells erase
 1 2 1 assign-grid
 1 2 2 assign-grid
 
-\ 8 4 4 assign-grid
-\ copy-grid
-\ -1 -1 fm . .
-\ -1 -1 query-grid . CR
-\ 0 1 query-grid . CR
-1 1 count-neighbors . CR
+\ 0 0 count-neighbors . CR
 
 print-grid
 
