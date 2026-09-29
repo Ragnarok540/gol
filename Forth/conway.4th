@@ -1,5 +1,5 @@
-5 constant height
-5 constant width
+10 constant height
+10 constant width
 height width * constant size
 size 1 - constant limit
 
@@ -25,12 +25,19 @@ variable neighbors
 : assign-grid ( n n n -- )
     index cells grid + ! ;
 
+: draw ( n -- )
+    0 = if
+        32 46 emit emit
+    else
+        32 35 emit emit
+    then ;
+
 : print-grid ( -- )
     size 0 do
         i width mod 0 = if
             CR
         then
-        i cells grid + @ .
+        i cells grid + @ draw
     loop
     CR ;
 
