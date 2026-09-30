@@ -17,7 +17,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 
 ## Number of Languages
 
-- 30
+- 31
 
 ## Implementation Languages
 
