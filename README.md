@@ -17,7 +17,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 
 ## Number of Languages
 
-- 31
+- 32
 
 ## Implementation Languages
 
@@ -46,6 +46,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Prolog|1.5.0|[Site](http://gprolog.org/)||
 |Python|3.14.0|[Site](https://www.python.org/)|[README](/Python/README.md)|
 |R|4.5.2|[Site](https://www.r-project.org/)||
+|Racket|9.1|[Site](https://racket-lang.org/)||
 |Ruby|2.6.10|[Site](https://www.ruby-lang.org/)|[README](/Ruby/README.md)|
 |Rust|1.94.1|[Site](https://rust-lang.org/)|[README](/Rust/README.md)|
 |Simula|67|[Site](https://www.mn.uio.no/english/services/it/simula/)|[README](/Simula/README.md)|
