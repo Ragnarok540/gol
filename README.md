@@ -55,3 +55,4 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Umka|1.5.6|[Site](https://github.com/vtereshkov/umka-lang)||
 |V|0.5.2|[Site](https://vlang.io/)||
 |Wren|0.4.0|[Site](https://wren.io/)||
+|Zig|0.17.0|[Site](https://ziglang.org/)||
