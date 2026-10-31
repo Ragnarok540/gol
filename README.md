@@ -17,7 +17,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 
 ## Number of Languages
 
-- 34
+- 35
 
 ## Implementation Languages
 
@@ -43,6 +43,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Lua|5.5.0|[Site](https://www.lua.org/)||
 |Matlab|11.3.0|[Site](https://octave.org/)|[README](/Matlab/README.md)|
 |Nim|2.2.10|[Site](https://nim-lang.org/)|[README](/Nim/README.md)|
+|Pascal|3.2.2|[Site](https://www.freepascal.org/)||
 |Perl|5.34.1|[Site](https://www.perl.org/)||
 |Prolog|1.5.0|[Site](http://gprolog.org/)||
 |Python|3.14.0|[Site](https://www.python.org/)|[README](/Python/README.md)|

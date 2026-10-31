@@ -1,4 +1,5 @@
 program Conway(output);
+uses Crt, Video;
 
 const
     Height = 10;
@@ -12,8 +13,7 @@ type
     Neighbors = 0..8;
 
 var
-    i: Integer;
-    j: Integer;
+    i, j: Integer;
     gr : Grid;
 
 function Draw(s: State): Char;
@@ -34,21 +34,14 @@ begin
     end;
 end;
 
-function Modulo(x: Integer; y: Integer): Integer;
-begin
-    if x > 0 then Modulo := x mod y;
-    if x < 0 then Modulo := (x + y) mod y;
-    if x = 0 then Modulo := 0;
-end;
-
 procedure Assign(var g: Grid; row: Integer; col: Integer; s: State);
 begin
-    g[Rows(Modulo(row, Height) + 1)][Cols(Modulo(col, Width) + 1)] := s;
+    g[Rows((row mod Height) + 1)][Cols((col mod Width) + 1)] := s;
 end;
 
 function Query(g: Grid; row: Integer; col: Integer): State;
 begin
-    Query := g[Rows(Modulo(row, Height) + 1)][Cols(Modulo(col, Width) + 1)];
+    Query := g[Rows((row mod Height) + 1)][Cols((col mod Width) + 1)];
 end;
 
 function CountNeighbors(g: Grid; row: Integer; col: Integer): Neighbors;
@@ -68,17 +61,36 @@ end;
 function GameLogic(s: State; n: Neighbors): State;
 begin
     if s = 1 then begin
-        if (n < 2) or (n > 3) then GameLogic := 0
-        else GameLogic := s
+        if (n < 2) or (n > 3) then
+            GameLogic := 0
+        else
+            GameLogic := s
     end;
     if s = 0 then begin
-        if n = 3 then GameLogic := 1
-        else GameLogic := s
+        if n = 3 then
+            GameLogic := 1
+        else
+            GameLogic := s
     end;
 end;
 
-{StepCell}
-{Simulate}
+function StepCell(g: Grid; row: Integer; col: Integer): State;
+    var s: State;
+    var n: Neighbors;
+begin
+    s := Query(g, row, col);
+    n := CountNeighbors(g, row, col);
+    StepCell := GameLogic(s, n);
+end;
+
+function Simulate(g: Grid): Grid;
+    var newG: Grid;
+begin
+    for i := low(Rows) to high(Rows) do
+        for j := low(Cols) to high(Cols) do
+            Assign(newG, i, j, StepCell(g, i, j));
+    Simulate := newG;
+end;
 
 begin
     for i := low(Rows) to high(Rows) do
@@ -92,8 +104,16 @@ begin
     Assign(gr, 2, 4, 1);
 
     Print(gr);
-    WriteLn(CountNeighbors(gr, 1, 3))
+    InitVideo;
+    
+    while True do begin
+        ClearScreen;
+        gr := Simulate(gr);
+        Print(gr);
+        Delay(100);
+    end;
 
+    DoneVideo
 end.
 
 {mkdir -p bin}
