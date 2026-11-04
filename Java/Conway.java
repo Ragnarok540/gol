@@ -37,7 +37,7 @@ public class Conway {
             return '#';
         }
         return '.';
-    } 
+    }
 
     private void print() {
         for (int[] row: this.grid) {
