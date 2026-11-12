@@ -17,7 +17,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 
 ## Number of Languages
 
-- 36
+- 37
 
 ## Implementation Languages
 
@@ -40,6 +40,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Io|20151111|[Site](https://iolanguage.org/)||
 |Java|25.0.1|[Site](https://openjdk.org/)|[README](/Java/README.md)|
 |JavaScript|20.19.5|[Site](https://nodejs.org/en)|[README](/JavaScript/README.md)|
+|Julia|1.13.3|[Site](https://julialang.org/)||
 |Kotlin|2.4.0|[Site](https://kotlinlang.org/)||
 |Lua|5.5.0|[Site](https://www.lua.org/)||
 |Matlab|11.3.0|[Site](https://octave.org/)|[README](/Matlab/README.md)|
