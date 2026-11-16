@@ -17,7 +17,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 
 ## Number of Languages
 
-- 37
+- 38
 
 ## Implementation Languages
 
@@ -34,6 +34,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |Erlang|29|[Site](https://www.erlang.org/)|[README](/Erlang/README.md)|
 |Forth|0.7.3|[Site](https://gforth.org/)||
 |Fortran|2023|[Site](https://fortran-lang.org/)|[README](/Fortran/README.md)|
+|Freebasic|1.10.1|[Site](https://www.freebasic.net/)||
 |Go|1.26.2|[Site](https://go.dev/)||
 |Groovy|3.0.4|[Site](https://groovy-lang.org/)||
 |Haxe|4.3.7|[Site](https://haxe.org/)||
