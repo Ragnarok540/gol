@@ -17,7 +17,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 
 ## Number of Languages
 
-- 38
+- 39
 
 ## Implementation Languages
 
@@ -27,6 +27,7 @@ cellular automaton known as [Conway's Game of Life](https://en.wikipedia.org/wik
 |C#|10.0.300|[Site](https://dotnet.microsoft.com/en-us/languages/csharp)|[README](/C%23/README.md)|
 |C++|C++23|[Site](https://isocpp.org/)|[README](/C++/README.md)|
 |C|C23|[Site](https://www.c-language.org/)|[README](/C/README.md)|
+|ChucK|1.5.5.9|[Site](https://chuck.cs.princeton.edu/)||
 |D|1.42.0|[Site](https://dlang.org/)||
 |Dart|3.13.6|[Site](https://dart.dev/)||
 |Eiffel|2022|[Site](https://www.liberty-eiffel.org/)||
